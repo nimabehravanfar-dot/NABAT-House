@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NABAT House – شیرینی ایرانی | Moncton, NB</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Vazirmatn:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#C8922A;--gold-light:#E8B84B;--gold-pale:#FDF3E0;--gold-deep:#9A6D1A;
+  --crimson:#8B1A1A;--crimson-light:#B5292A;
+  --cream:#FAF6EE;--dark:#1A0F07;--dark2:#2E1E0F;--dark3:#3D2510;
+  --text:#2A1A08;--text-muted:#7A6040;
+  --border:rgba(200,146,42,0.22);
+  --teal:#1A6B5C;
+  --font-fa:'Vazirmatn',sans-serif;
+  --font-en:'Playfair Display',serif;
+  --font-fr:'Cormorant Garamond',serif;
+  --shadow:0 12px 48px rgba(26,15,7,0.14);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-fa);background:var(--cream);color:var(--text);direction:rtl;overflow-x:hidden}
+
+/* ── LANG TRANSITIONS ── */
+[data-lang="en"] body,[data-lang="fr"] body{direction:ltr;font-family:var(--font-en)}
+[data-lang="fr"] body{font-family:var(--font-fr)}
+html[data-lang="en"],[data-lang="en"] *:not(.force-rtl){direction:ltr}
+html[data-lang="fr"],[data-lang="fr"] *:not(.force-rtl){direction:ltr}
+.lang-fa,.lang-en,.lang-fr{display:none}
+html[data-lang="fa"] .lang-fa{display:revert}
+html[data-lang="en"] .lang-en{display:revert}
+html[data-lang="fr"] .lang-fr{display:revert}
+/* inline spans */
+span.lang-fa,span.lang-en,span.lang-fr{display:none}
+html[data-lang="fa"] span.lang-fa{display:inline}
+html[data-lang="en"] span.lang-en{display:inline}
+html[data-lang="fr"] span.lang-fr{display:inline}
+
+/* ── PERSIAN BG PATTERN ── */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8922A' fill-opacity='0.045'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40Z'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40Z' fill-opacity='0.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;
+}
+.pattern-border{height:6px;background:repeating-linear-gradient(90deg,var(--gold) 0 8px,var(--crimson) 8px 16px,var(--gold-light) 16px 24px,var(--crimson) 24px 32px)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:var(--dark);border-bottom:3px solid var(--gold)}
+.nav-topbar{background:var(--crimson);text-align:center;padding:6px 4%;font-size:0.78rem;color:rgba(255,255,255,0.85)}
+.nav-topbar span{color:var(--gold-light);font-weight:700}
+.nav-main{display:flex;align-items:center;justify-content:space-between;padding:0 4%;height:70px;gap:12px}
+.nav-logo{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.logo-en{font-family:var(--font-en);font-size:1.6rem;font-weight:900;color:var(--gold-light);letter-spacing:2px;line-height:1}
+.logo-en span{color:#fff}
+.logo-sub{font-size:0.68rem;color:rgba(255,255,255,0.45);letter-spacing:2px;margin-top:2px}
+.nav-links{display:flex;gap:2px;list-style:none;align-items:center;flex-wrap:wrap}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:0.82rem;font-weight:500;padding:7px 11px;border-radius:8px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold-light);background:rgba(200,146,42,0.12)}
+.nav-links a.cs{color:rgba(255,255,255,0.3);position:relative;pointer-events:none}
+.nav-links a.cs::after{content:attr(data-soon);position:absolute;top:-8px;right:-4px;background:var(--crimson);color:#fff;font-size:0.58rem;padding:1px 5px;border-radius:6px;pointer-events:none}
+.nav-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+
+/* Language switcher */
+.lang-switcher{display:flex;border-radius:10px;overflow:hidden;border:1px solid rgba(200,146,42,0.3)}
+.lang-btn{background:transparent;color:rgba(255,255,255,0.55);border:none;padding:7px 11px;font-size:0.78rem;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.lang-btn:hover{background:rgba(200,146,42,0.1);color:var(--gold-light)}
+.lang-btn.active{background:var(--gold);color:var(--dark)}
+.cart-btn{background:var(--gold);color:var(--dark);border:none;border-radius:12px;padding:9px 16px;font-family:var(--font-fa);font-weight:700;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .2s;white-space:nowrap}
+.cart-btn:hover{background:var(--gold-light);transform:scale(1.03)}
+.cart-badge{background:var(--crimson);color:#fff;border-radius:50%;width:20px;height:20px;font-size:.7rem;font-weight:900;display:flex;align-items:center;justify-content:center}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,var(--dark) 0%,var(--dark2) 55%,#3D1A05 100%);min-height:88vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:60px 4%}
+.hero-arch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:420px;border:2px solid rgba(200,146,42,0.13);border-radius:0 0 300px 300px;border-top:none;pointer-events:none}
+.hero-arch::before{content:'';position:absolute;top:22px;left:22px;right:22px;bottom:0;border:1px solid rgba(200,146,42,0.07);border-radius:0 0 278px 278px;border-top:none}
+.hero-glow{position:absolute;width:560px;height:560px;background:radial-gradient(circle,rgba(200,146,42,0.11) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.hero-content{text-align:center;position:relative;z-index:1;max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,146,42,0.12);border:1px solid rgba(200,146,42,0.3);color:var(--gold-light);border-radius:30px;padding:7px 20px;font-size:.8rem;font-weight:700;letter-spacing:.8px;margin-bottom:1.4rem;animation:fadeD .8s both}
+.hero-ornament{font-size:2rem;color:var(--gold);letter-spacing:10px;margin-bottom:1rem;animation:fadeD .8s .1s both;opacity:.8}
+.hero h1{font-family:var(--font-en);font-size:clamp(2.8rem,6vw,5rem);font-weight:900;color:#fff;line-height:1.05;margin-bottom:.4rem;animation:fadeD .8s .2s both;letter-spacing:2px}
+.hero h1 .house{color:var(--gold-light)}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.5rem);color:rgba(255,255,255,.55);font-weight:300;letter-spacing:3px;margin-bottom:1.2rem;animation:fadeD .8s .3s both}
+.hero-desc{color:rgba(255,255,255,.62);font-size:.98rem;line-height:1.85;max-width:540px;margin:0 auto 2.2rem;animation:fadeD .8s .4s both}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeD .8s .5s both}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none;border-radius:30px;padding:14px 30px;font-family:var(--font-fa);font-weight:700;font-size:.95rem;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(200,146,42,.4);text-decoration:none;display:inline-block}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(200,146,42,.52)}
+.btn-outline{background:transparent;color:var(--gold-light);border:2px solid rgba(200,146,42,.45);border-radius:30px;padding:12px 28px;font-family:var(--font-fa);font-weight:600;font-size:.95rem;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
+.btn-outline:hover{border-color:var(--gold-light);background:rgba(200,146,42,.1);transform:translateY(-2px)}
+.hero-stats{display:flex;justify-content:center;gap:0;margin-top:3rem;animation:fadeD .8s .6s both}
+.h-stat{background:rgba(255,255,255,.05);border:1px solid rgba(200,146,42,.2);padding:16px 22px;text-align:center}
+.h-stat:first-child{border-radius:14px 0 0 14px}
+.h-stat:last-child{border-radius:0 14px 14px 0}
+.stat-v{font-family:var(--font-en);font-size:1.5rem;font-weight:900;color:var(--gold-light);display:block}
+.stat-l{font-size:.72rem;color:rgba(255,255,255,.48);margin-top:2px}
+
+/* ── TRUST BAR ── */
+.trust-bar{background:var(--dark2);border-top:1px solid rgba(200,146,42,.18);border-bottom:1px solid rgba(200,146,42,.18);padding:15px 4%;display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.62);font-size:.83rem}
+.trust-icon{font-size:1.1rem;color:var(--gold)}
+
+/* ── SECTIONS ── */
+.section{padding:65px 4%;position:relative;z-index:1}
+.section-dark{background:var(--dark);padding:65px 4%;position:relative;z-index:1}
+.sec-head{text-align:center;margin-bottom:2.8rem}
+.sec-sub{display:inline-block;color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.7rem}
+.sec-head h2{font-family:var(--font-en);font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:900;color:var(--dark);margin-bottom:.5rem}
+.section-dark .sec-head h2{color:#fff}
+.sec-head p{color:var(--text-muted);max-width:520px;margin:0 auto;font-size:.93rem;line-height:1.75}
+.section-dark .sec-head p{color:rgba(255,255,255,.55)}
+.ornament{text-align:center;color:var(--gold);font-size:1.3rem;letter-spacing:8px;opacity:.7;margin:.4rem 0}
+.divider{display:flex;align-items:center;gap:1rem;margin:.5rem 0 2rem}
+.divider::before,.divider::after{content:'';flex:1;height:1.5px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.divider span{color:var(--gold);font-size:1.1rem}
+
+/* ── CATEGORIES ── */
+.cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+.cat-card{background:#fff;border:2px solid transparent;border-radius:var(--radius);padding:26px 14px 18px;text-align:center;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-pale),transparent);opacity:0;transition:opacity .3s}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-5px);box-shadow:0 12px 32px rgba(200,146,42,.15)}
+.cat-card:hover::before{opacity:1}
+.cat-card.active{border-color:var(--gold);background:var(--gold-pale)}
+.cat-card.disabled{opacity:.42;cursor:default}
+.cat-card.disabled:hover{transform:none;box-shadow:none;border-color:transparent}
+.cat-emoji{font-size:2.6rem;display:block;margin-bottom:10px}
+.cat-label{font-weight:700;font-size:.88rem;color:var(--dark);display:block;margin-bottom:3px}
+.cat-sub{font-size:.72rem;color:var(--text-muted)}
+.cat-soon{position:absolute;top:8px;left:8px;background:var(--crimson);color:#fff;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:7px}
+
+/* ── PRODUCTS ── */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1.8rem;align-items:center}
+.f-chip{background:#fff;border:1.5px solid var(--border);border-radius:24px;padding:8px 18px;font-family:var(--font-fa);font-size:.83rem;font-weight:500;color:var(--text-muted);cursor:pointer;transition:all .2s}
+.f-chip:hover,.f-chip.active{background:var(--dark);color:var(--gold-light);border-color:var(--dark)}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:22px}
+.pcard{background:#fff;border-radius:20px;overflow:hidden;border:1.5px solid rgba(200,146,42,.1);transition:all .3s;position:relative}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(200,146,42,.17);border-color:var(--gold)}
+.pbadge{position:absolute;top:13px;right:13px;border-radius:10px;padding:4px 11px;font-size:.68rem;font-weight:700;z-index:2}
+.badge-hot{background:var(--crimson);color:#fff}
+.badge-new{background:var(--gold);color:var(--dark)}
+.badge-sale{background:var(--teal);color:#fff}
+.pimg{height:195px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gold-pale) 0%,#FDF0D5 100%);font-size:5.5rem;position:relative;overflow:hidden}
+.pbody{padding:17px}
+.ptag{font-size:.7rem;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.pname{font-family:var(--font-fa);font-size:1.02rem;font-weight:700;color:var(--dark);line-height:1.35;margin-bottom:3px}
+.pname-en{font-size:.76rem;color:var(--text-muted);margin-bottom:7px;font-style:italic}
+.pdesc{font-size:.8rem;color:var(--text-muted);line-height:1.65;margin-bottom:11px}
+.pstars{color:var(--gold);font-size:.8rem;margin-bottom:7px}
+.prev{color:var(--text-muted);font-size:.72rem}
+.weight-sel{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:13px}
+.wbtn{background:var(--cream);border:1.5px solid var(--border);border-radius:8px;padding:5px 11px;font-size:.75rem;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all .18s}
+.wbtn:hover,.wbtn.sel{background:var(--dark);color:var(--gold-light);border-color:var(--dark)}
+.pfooter{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(200,146,42,.1);padding-top:11px;margin-top:4px}
+.price{font-family:var(--font-en);font-size:1.22rem;font-weight:900;color:var(--crimson)}
+.price-u{font-size:.72rem;color:var(--text-muted);margin-top:1px}
+.add-btn{background:linear-gradient(135deg,var(--dark),#4A2E10);color:var(--gold-light);border:none;border-radius:12px;padding:10px 18px;font-family:var(--font-fa);font-weight:700;font-size:.83rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.add-btn:hover{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);transform:scale(1.05)}
+
+/* ── FEATURED BANNER ── */
+.feat-banner{background:linear-gradient(135deg,var(--dark) 0%,var(--dark2) 60%,#3A1804 100%);border-radius:22px;padding:48px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;border:1px solid rgba(200,146,42,.2);margin:55px 4%;position:relative;overflow:hidden;z-index:1}
+.feat-banner::before{content:'';position:absolute;right:-90px;top:-90px;width:380px;height:380px;border:55px solid rgba(200,146,42,.05);border-radius:50%}
+.feat-text h2{font-family:var(--font-en);font-size:2.2rem;font-weight:900;color:#fff;margin:12px 0 14px;line-height:1.15}
+.feat-text h2 em{color:var(--gold-light);font-style:normal}
+.feat-text p{color:rgba(255,255,255,.62);line-height:1.8;margin-bottom:22px;font-size:.93rem}
+.feat-imgs{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.feat-box{background:rgba(255,255,255,.06);border:1px solid rgba(200,146,42,.15);border-radius:13px;height:115px;display:flex;align-items:center;justify-content:center;font-size:3.3rem;transition:transform .2s}
+.feat-box:hover{transform:scale(1.06)}
+
+/* ── PAYMENT ── */
+.pay-section{background:var(--dark);padding:65px 4%}
+.pay-tabs{display:inline-flex;border-radius:14px;overflow:hidden;border:1px solid rgba(200,146,42,.22);margin-bottom:2.8rem}
+.pay-tab{padding:12px 28px;background:transparent;color:rgba(255,255,255,.55);border:none;font-family:var(--font-fa);font-size:.88rem;font-weight:600;cursor:pointer;transition:all .22s;white-space:nowrap}
+.pay-tab.active{background:var(--gold);color:var(--dark)}
+.pay-tab:hover:not(.active){background:rgba(200,146,42,.1);color:var(--gold-light)}
+.pay-panel{display:none}
+.pay-panel.active{display:block}
+.pay-form{background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.15);border-radius:20px;padding:38px;max-width:510px;margin:0 auto;text-align:right}
+html[data-lang="en"] .pay-form,html[data-lang="fr"] .pay-form{text-align:left}
+.pay-form h3{font-family:var(--font-en);font-size:1.35rem;color:#fff;margin-bottom:5px;text-align:center}
+.pay-form>p{font-size:.82rem;color:rgba(255,255,255,.45);text-align:center;margin-bottom:22px}
+.frow{margin-bottom:15px}
+.frow label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.58);margin-bottom:5px}
+.frow input,.frow select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(200,146,42,.2);border-radius:10px;padding:12px 15px;color:#fff;font-family:var(--font-fa);font-size:.88rem;outline:none;direction:ltr;transition:border-color .2s}
+.frow input:focus,.frow select:focus{border-color:var(--gold)}
+.frow input::placeholder{color:rgba(255,255,255,.22)}
+.fsplit{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.pay-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none;border-radius:12px;padding:15px;font-family:var(--font-fa);font-size:.97rem;font-weight:700;cursor:pointer;margin-top:7px;transition:all .25s;box-shadow:0 4px 20px rgba(200,146,42,.33)}
+.pay-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,146,42,.48)}
+.pay-secure{display:flex;align-items:center;justify-content:center;gap:7px;color:rgba(255,255,255,.3);font-size:.74rem;margin-top:12px}
+/* Interac info box */
+.interac-box{background:rgba(200,146,42,.08);border:1px solid rgba(200,146,42,.2);border-radius:12px;padding:18px;margin-bottom:18px;text-align:center}
+.interac-email{color:var(--gold-light);font-size:1.05rem;font-weight:700;direction:ltr;margin:6px 0}
+.interac-note{color:rgba(255,255,255,.38);font-size:.76rem;margin-top:5px}
+/* Crypto */
+.crypto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.coin{background:rgba(255,255,255,.05);border:1.5px solid rgba(200,146,42,.15);border-radius:13px;padding:14px 8px;text-align:center;cursor:pointer;transition:all .2s}
+.coin:hover,.coin.sel{border-color:var(--gold);background:rgba(200,146,42,.08)}
+.coin-ic{font-size:1.8rem;display:block;margin-bottom:5px}
+.coin-nm{color:#fff;font-size:.82rem;font-weight:600}
+.coin-sy{color:rgba(255,255,255,.38);font-size:.7rem;margin-top:2px}
+.wallet-box{background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.18);border-radius:11px;padding:15px;margin-bottom:18px;text-align:center}
+.wallet-lbl{color:rgba(255,255,255,.45);font-size:.77rem;margin-bottom:5px}
+.wallet-addr{font-family:monospace;font-size:.75rem;color:var(--gold-light);word-break:break-all;display:block}
+.copy-btn{background:rgba(200,146,42,.14);border:1px solid rgba(200,146,42,.28);color:var(--gold-light);border-radius:7px;padding:6px 14px;font-size:.75rem;cursor:pointer;margin-top:9px;transition:background .2s}
+.copy-btn:hover{background:rgba(200,146,42,.24)}
+.crypto-warn{background:rgba(255,165,0,.07);border:1px solid rgba(255,165,0,.18);border-radius:9px;padding:12px;margin-bottom:14px;font-size:.77rem;color:rgba(255,255,255,.5);text-align:center}
+.crypto-warn span{color:var(--gold-light)}
+
+/* ── DELIVERY ── */
+.delivery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:18px}
+.del-card{background:#fff;border-radius:17px;padding:26px 20px;border:1.5px solid rgba(200,146,42,.12);transition:all .25s}
+.del-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:var(--shadow)}
+.del-icon{width:50px;height:50px;background:var(--gold-pale);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px}
+.del-card h4{font-size:.97rem;font-weight:700;color:var(--dark);margin-bottom:7px}
+.del-card p{font-size:.81rem;color:var(--text-muted);line-height:1.65}
+
+/* ── PROMO ── */
+.promo{background:linear-gradient(90deg,var(--crimson),#C0392B,var(--crimson));padding:22px 4%;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.promo-txt h3{color:#fff;font-size:1.18rem;font-weight:700;margin-bottom:4px}
+.promo-txt p{color:rgba(255,255,255,.72);font-size:.86rem}
+.promo-code{background:rgba(255,255,255,.1);border:2px dashed rgba(255,255,255,.28);border-radius:13px;padding:13px 22px;text-align:center;cursor:pointer;transition:background .2s}
+.promo-code:hover{background:rgba(255,255,255,.17)}
+.promo-lbl{color:rgba(255,255,255,.55);font-size:.72rem;margin-bottom:4px}
+.promo-val{font-family:var(--font-en);font-size:1.55rem;font-weight:900;color:var(--gold-light);letter-spacing:3px}
+.promo-sub{color:rgba(255,255,255,.42);font-size:.7rem;margin-top:4px}
+
+/* ── TESTIMONIALS ── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.tcard{background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.15);border-radius:17px;padding:26px}
+.tcard-stars{color:var(--gold);font-size:.95rem;margin-bottom:11px}
+.tcard-text{color:rgba(255,255,255,.73);font-size:.88rem;line-height:1.75;margin-bottom:17px;font-style:italic}
+.tcard-author{display:flex;align-items:center;gap:11px}
+.tav{width:40px;height:40px;border-radius:50%;background:rgba(200,146,42,.18);display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:2px solid var(--gold)}
+.tname{color:#fff;font-weight:700;font-size:.88rem}
+.tcity{color:rgba(255,255,255,.38);font-size:.74rem;margin-top:2px}
+
+/* ── FUTURE ── */
+.future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.fcard{background:#fff;border:2px dashed rgba(200,146,42,.22);border-radius:17px;padding:28px 18px;text-align:center;opacity:.6;position:relative}
+.fcard::after{content:attr(data-phase);position:absolute;top:10px;left:50%;transform:translateX(-50%);background:var(--crimson);color:#fff;font-size:.6rem;font-weight:700;padding:2px 9px;border-radius:7px;white-space:nowrap}
+.fcard-ic{font-size:2.6rem;display:block;margin:10px 0 8px}
+.fcard h4{font-size:.92rem;font-weight:700;color:var(--dark);margin-bottom:3px}
+.fcard p{font-size:.76rem;color:var(--text-muted)}
+
+/* ── NEWSLETTER ── */
+.newsletter{background:linear-gradient(135deg,var(--dark2),#4A2810);padding:58px 4%;text-align:center}
+.newsletter h2{font-family:var(--font-en);font-size:2rem;font-weight:900;color:#fff;margin-bottom:9px}
+.newsletter p{color:rgba(255,255,255,.58);margin-bottom:26px}
+.nl-form{display:flex;max-width:450px;margin:0 auto;border-radius:13px;overflow:hidden;border:1px solid rgba(200,146,42,.22)}
+.nl-input{flex:1;background:rgba(255,255,255,.07);border:none;padding:13px 18px;color:#fff;font-family:var(--font-fa);font-size:.88rem;outline:none;direction:ltr}
+.nl-input::placeholder{color:rgba(255,255,255,.28)}
+.nl-btn{background:var(--gold);color:var(--dark);border:none;padding:13px 22px;font-family:var(--font-fa);font-weight:700;font-size:.86rem;cursor:pointer;transition:background .2s;white-space:nowrap}
+.nl-btn:hover{background:var(--gold-light)}
+
+/* ── FOOTER ── */
+footer{background:#0E0804;padding:52px 4% 22px;color:rgba(255,255,255,.48)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:38px}
+.flogo{font-family:var(--font-en);font-size:1.7rem;font-weight:900;color:var(--gold-light);letter-spacing:2px}
+.flogo span{color:#fff}
+.fbrand p{font-size:.82rem;line-height:1.78;margin-top:11px;margin-bottom:15px}
+.faddr{background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.13);border-radius:9px;padding:11px 13px;font-size:.76rem;line-height:1.8}
+.faddr strong{color:var(--gold-light)}
+.fcol h4{color:#fff;font-weight:700;font-size:.87rem;margin-bottom:13px;text-transform:uppercase;letter-spacing:.8px;padding-bottom:7px;border-bottom:1px solid rgba(200,146,42,.18)}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.fcol a{color:rgba(255,255,255,.42);text-decoration:none;font-size:.82rem;transition:color .2s}
+.fcol a:hover{color:var(--gold-light)}
+.fsocial{display:flex;gap:8px;margin-top:14px}
+.soc{width:36px;height:36px;background:rgba(255,255,255,.05);border:1px solid rgba(200,146,42,.18);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;cursor:pointer;transition:all .2s;text-decoration:none}
+.soc:hover{background:var(--gold);border-color:var(--gold)}
+.footer-btm{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:.76rem}
+.fpays{display:flex;gap:7px;align-items:center}
+.pico{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:5px;padding:3px 9px;font-size:.7rem;color:rgba(255,255,255,.38)}
+
+/* ── CART SIDEBAR ── */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(3px)}
+.overlay.open{opacity:1;pointer-events:all}
+.cart-side{position:fixed;right:0;top:0;bottom:0;width:420px;background:var(--dark2);border-left:1px solid rgba(200,146,42,.2);z-index:201;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-18px 0 55px rgba(0,0,0,.4)}
+html[data-lang="en"] .cart-side,html[data-lang="fr"] .cart-side{right:auto;left:0;border-left:none;border-right:1px solid rgba(200,146,42,.2);transform:translateX(-100%);box-shadow:18px 0 55px rgba(0,0,0,.4)}
+.cart-side.open{transform:translateX(0)}
+.cart-top{background:var(--dark);border-bottom:1px solid rgba(200,146,42,.2);padding:19px 22px;display:flex;align-items:center;justify-content:space-between}
+.cart-top h3{font-family:var(--font-en);color:var(--gold-light);font-size:1.15rem}
+.cx{background:rgba(255,255,255,.08);color:rgba(255,255,255,.65);border:none;border-radius:50%;width:34px;height:34px;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.cx:hover{background:var(--crimson);color:#fff}
+.cart-list{flex:1;overflow-y:auto;padding:18px 22px}
+.cempty{text-align:center;padding:46px 18px;color:rgba(255,255,255,.32)}
+.cempty-ic{font-size:2.8rem;display:block;margin-bottom:11px}
+.ci-row{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(200,146,42,.11);border-radius:13px;padding:13px;margin-bottom:11px}
+.ci-img{font-size:2rem;width:50px;height:50px;background:rgba(200,146,42,.08);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-info{flex:1}
+.ci-nm{color:#fff;font-weight:700;font-size:.85rem;margin-bottom:2px}
+.ci-wt{color:rgba(255,255,255,.38);font-size:.72rem;margin-bottom:7px}
+.ci-pr{color:var(--gold-light);font-weight:700;font-size:.92rem}
+.ci-qty{display:flex;align-items:center;gap:7px;margin-top:7px}
+.qb{width:27px;height:27px;background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.23);border-radius:7px;color:var(--gold-light);font-size:.95rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.qb:hover{background:rgba(200,146,42,.24)}
+.qn{color:#fff;font-weight:700;min-width:20px;text-align:center}
+.ci-rm{background:none;border:none;color:rgba(255,255,255,.22);cursor:pointer;font-size:.95rem;padding:3px;transition:color .15s}
+.ci-rm:hover{color:#E74C3C}
+.cart-foot{padding:18px 22px;background:rgba(0,0,0,.28);border-top:1px solid rgba(200,146,42,.13)}
+.cart-tot-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.cart-tot-lbl{color:rgba(255,255,255,.52);font-size:.88rem}
+.cart-tot-val{font-family:var(--font-en);font-size:1.45rem;font-weight:900;color:var(--gold-light)}
+.cart-note{font-size:.74rem;color:rgba(255,255,255,.28);text-align:center;margin-bottom:11px}
+.chk-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--dark);border:none;border-radius:13px;padding:14px;font-family:var(--font-fa);font-weight:700;font-size:.97rem;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(200,146,42,.3)}
+.chk-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,146,42,.45)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:26px;left:26px;background:var(--dark2);border:1px solid var(--gold);color:var(--gold-light);border-radius:13px;padding:13px 20px;font-weight:700;font-size:.85rem;z-index:400;transform:translateY(80px);opacity:0;transition:all .35s cubic-bezier(.4,0,.2,1);box-shadow:0 8px 30px rgba(0,0,0,.4);direction:rtl;max-width:320px}
+html[data-lang="en"] .toast,html[data-lang="fr"] .toast{left:auto;right:26px;direction:ltr}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeD{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .nav-links{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .feat-banner{grid-template-columns:1fr;padding:30px}
+  .crypto-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .cart-side{width:100%}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-stats{flex-direction:column}
+  .h-stat{border-radius:12px !important;width:100%}
+  .pay-form{padding:22px}
+  .fsplit{grid-template-columns:1fr}
+  .promo{flex-direction:column;text-align:center}
+  .feat-banner{margin:30px 4%}
+}
+</style>
+</head>
+<body>
+
+<div class="pattern-border"></div>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-topbar">
+    <span class="lang-fa">📍 Moncton، نیوبرانزویک، کانادا &nbsp;|&nbsp; <span>ارسال رایگان</span> در Moncton &nbsp;|&nbsp; ☎ <span dir="ltr">+1 (506) 000-0000</span></span>
+    <span class="lang-en">📍 Moncton, New Brunswick, Canada &nbsp;|&nbsp; <span>Free delivery</span> in Moncton &nbsp;|&nbsp; ☎ +1 (506) 000-0000</span>
+    <span class="lang-fr">📍 Moncton, Nouveau-Brunswick, Canada &nbsp;|&nbsp; <span>Livraison gratuite</span> à Moncton &nbsp;|&nbsp; ☎ +1 (506) 000-0000</span>
+  </div>
+  <div class="nav-main">
+    <div class="nav-logo">
+      <div class="logo-en">NABAT <span>House</span></div>
+      <div class="logo-sub lang-fa">خانه شیرینی ایرانی · Moncton NB</div>
+      <div class="logo-sub lang-en">Persian Sweets & Pastry · Moncton NB</div>
+      <div class="logo-sub lang-fr">Pâtisseries Persanes · Moncton NB</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#products"><span class="lang-fa">محصولات</span><span class="lang-en">Products</span><span class="lang-fr">Produits</span></a></li>
+      <li><a href="#categories"><span class="lang-fa">دسته‌بندی</span><span class="lang-en">Categories</span><span class="lang-fr">Catégories</span></a></li>
+      <li><a href="#delivery"><span class="lang-fa">ارسال</span><span class="lang-en">Delivery</span><span class="lang-fr">Livraison</span></a></li>
+      <li><a href="#payment"><span class="lang-fa">پرداخت</span><span class="lang-en">Payment</span><span class="lang-fr">Paiement</span></a></li>
+      <li><a href="#" class="cs" data-soon="بزودی / Soon / Bientôt"><span class="lang-fa">تشریفات</span><span class="lang-en">Events</span><span class="lang-fr">Événements</span></a></li>
+      <li><a href="#" class="cs" data-soon="بزودی / Soon / Bientôt"><span class="lang-fa">آرایشگاه</span><span class="lang-en">Beauty</span><span class="lang-fr">Beauté</span></a></li>
+      <li><a href="#contact"><span class="lang-fa">تماس</span><span class="lang-en">Contact</span><span class="lang-fr">Contact</span></a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="lbtn-fa" onclick="setLang('fa')">FA</button>
+        <button class="lang-btn" id="lbtn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="lbtn-fr" onclick="setLang('fr')">FR</button>
+      </div>
+      <button class="cart-btn" onclick="openCart()">
+        🛒
+        <span class="lang-fa">سبد</span><span class="lang-en">Cart</span><span class="lang-fr">Panier</span>
+        <span class="cart-badge" id="cart-cnt">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-arch"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="lang-fa">🌟 اصیل · تازه · دست‌ساز</span>
+      <span class="lang-en">🌟 Authentic · Fresh · Handcrafted</span>
+      <span class="lang-fr">🌟 Authentique · Frais · Artisanal</span>
+    </div>
+    <div class="hero-ornament">❋ ✦ ❋ ✦ ❋</div>
+    <h1>NABAT <span class="house">House</span></h1>
+    <div class="hero-sub">
+      <span class="lang-fa">خانه شیرینی‌های اصیل ایرانی</span>
+      <span class="lang-en">Authentic Persian Sweets & Pastries</span>
+      <span class="lang-fr">Pâtisseries Persanes Authentiques</span>
+    </div>
+    <p class="hero-desc">
+      <span class="lang-fa">بهترین شیرینی‌های ایرانی، دانمارکی و آجیل درجه یک<br>با طعم اصیل، مستقیم از Moncton به سراسر کانادا</span>
+      <span class="lang-en">The finest Persian sweets, Danish pastries & premium nuts<br>Crafted with love in Moncton, delivered across Canada</span>
+      <span class="lang-fr">Les meilleures pâtisseries persanes, danoises & noix premium<br>Préparées avec amour à Moncton, livrées partout au Canada</span>
+    </p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#products">
+        <span class="lang-fa">🍬 مشاهده محصولات</span>
+        <span class="lang-en">🍬 Shop Now</span>
+        <span class="lang-fr">🍬 Acheter</span>
+      </a>
+      <a class="btn-outline" href="#payment">
+        <span class="lang-fa">💳 روش‌های پرداخت</span>
+        <span class="lang-en">💳 Payment Options</span>
+        <span class="lang-fr">💳 Modes de Paiement</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><span class="stat-v">100%</span><div class="stat-l lang-fa">دست‌پخت اصیل</div><div class="stat-l lang-en">Homemade</div><div class="stat-l lang-fr">Fait Maison</div></div>
+      <div class="h-stat"><span class="stat-v">24h</span><div class="stat-l lang-fa">ارسال سریع</div><div class="stat-l lang-en">Fast Delivery</div><div class="stat-l lang-fr">Livraison Rapide</div></div>
+      <div class="h-stat"><span class="stat-v">NB</span><div class="stat-l">Moncton · Canada</div></div>
+      <div class="h-stat"><span class="stat-v">★ 4.9</span><div class="stat-l lang-fa">رضایت مشتری</div><div class="stat-l lang-en">Customer Rating</div><div class="stat-l lang-fr">Satisfaction Client</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST BAR ══ -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">🚚</span><span class="lang-fa">ارسال رایگان در Moncton</span><span class="lang-en">Free delivery in Moncton</span><span class="lang-fr">Livraison gratuite à Moncton</span></div>
+  <div class="trust-item"><span class="trust-icon">❄️</span><span class="lang-fa">بسته‌بندی ایمن</span><span class="lang-en">Safe Packaging</span><span class="lang-fr">Emballage Sécurisé</span></div>
+  <div class="trust-item"><span class="trust-icon">💎</span><span class="lang-fa">مواد اولیه درجه یک</span><span class="lang-en">Premium Ingredients</span><span class="lang-fr">Ingrédients Premium</span></div>
+  <div class="trust-item"><span class="trust-icon">🔒</span><span class="lang-fa">پرداخت امن</span><span class="lang-en">Secure Payment</span><span class="lang-fr">Paiement Sécurisé</span></div>
+  <div class="trust-item"><span class="trust-icon">₿</span><span class="lang-fa">پذیرش ارز دیجیتال</span><span class="lang-en">Crypto Accepted</span><span class="lang-fr">Crypto Accepté</span></div>
+</div>
+
+<!-- ══ CATEGORIES ══ -->
+<section class="section" id="categories">
+  <div class="sec-head">
+    <span class="sec-sub lang-fa">دسته‌بندی محصولات</span>
+    <span class="sec-sub lang-en">Product Categories</span>
+    <span class="sec-sub lang-fr">Catégories de Produits</span>
+    <h2><span class="lang-fa">چه دنبالش هستید؟</span><span class="lang-en">What are you looking for?</span><span class="lang-fr">Que recherchez-vous ?</span></h2>
+    <div class="ornament">﷽</div>
+    <p><span class="lang-fa">از شیرینی‌های سنتی ایرانی تا آجیل طبیعی و بیکری تازه</span><span class="lang-en">From traditional Persian sweets to fresh bakery & natural nuts</span><span class="lang-fr">Des douceurs persanes traditionnelles aux noix naturelles et boulangerie fraîche</span></p>
+  </div>
+  <div class="divider"><span>✦</span></div>
+  <div class="cats-grid">
+    <div class="cat-card active" onclick="filterCat(this,'all')">
+      <span class="cat-emoji">🍬</span>
+      <span class="cat-label"><span class="lang-fa">همه محصولات</span><span class="lang-en">All Products</span><span class="lang-fr">Tous les Produits</span></span>
+      <span class="cat-sub"><span class="lang-fa">۵ محصول فعال</span><span class="lang-en">5 active products</span><span class="lang-fr">5 produits actifs</span></span>
+    </div>
+    <div class="cat-card" onclick="filterCat(this,'shirini-irani')">
+      <span class="cat-emoji">🥮</span>
+      <span class="cat-label"><span class="lang-fa">شیرینی ایرانی</span><span class="lang-en">Persian Sweets</span><span class="lang-fr">Douceurs Persanes</span></span>
+      <span class="cat-sub"><span class="lang-fa">رلد · باقلوا</span><span class="lang-en">Roll · Baklava</span><span class="lang-fr">Roulade · Baklava</span></span>
+    </div>
+    <div class="cat-card" onclick="filterCat(this,'noon-khamei')">
+      <span class="cat-emoji">🍮</span>
+      <span class="cat-label"><span class="lang-fa">نان خامه‌ای</span><span class="lang-en">Cream Puffs</span><span class="lang-fr">Choux à la Crème</span></span>
+      <span class="cat-sub"><span class="lang-fa">نارنجک مشهدی</span><span class="lang-en">Mashhad style</span><span class="lang-fr">Style Mashhad</span></span>
+    </div>
+    <div class="cat-card" onclick="filterCat(this,'cake')">
+      <span class="cat-emoji">🎂</span>
+      <span class="cat-label"><span class="lang-fa">کیک</span><span class="lang-en">Cakes</span><span class="lang-fr">Gâteaux</span></span>
+      <span class="cat-sub"><span class="lang-fa">موز · گردو</span><span class="lang-en">Banana · Walnut</span><span class="lang-fr">Banane · Noix</span></span>
+    </div>
+    <div class="cat-card" onclick="filterCat(this,'nan-barbari')">
+      <span class="cat-emoji">🍞</span>
+      <span class="cat-label"><span class="lang-fa">نان بربری</span><span class="lang-en">Barbari Bread</span><span class="lang-fr">Pain Barbari</span></span>
+      <span class="cat-sub"><span class="lang-fa">تازه هر روز</span><span class="lang-en">Fresh daily</span><span class="lang-fr">Frais chaque jour</span></span>
+    </div>
+    <div class="cat-card disabled">
+      <div class="cat-soon"><span class="lang-fa">بزودی</span><span class="lang-en">Soon</span><span class="lang-fr">Bientôt</span></div>
+      <span class="cat-emoji">🥐</span>
+      <span class="cat-label"><span class="lang-fa">شیرینی دانمارکی</span><span class="lang-en">Danish Pastry</span><span class="lang-fr">Viennoiseries</span></span>
+      <span class="cat-sub"><span class="lang-fa">کروسان · اکلر</span><span class="lang-en">Croissant · Éclair</span><span class="lang-fr">Croissant · Éclair</span></span>
+    </div>
+    <div class="cat-card disabled">
+      <div class="cat-soon"><span class="lang-fa">بزودی</span><span class="lang-en">Soon</span><span class="lang-fr">Bientôt</span></div>
+      <span class="cat-emoji">🥜</span>
+      <span class="cat-label"><span class="lang-fa">آجیل و خشکبار</span><span class="lang-en">Nuts & Dried Fruits</span><span class="lang-fr">Noix & Fruits Secs</span></span>
+      <span class="cat-sub"><span class="lang-fa">پسته · بادام</span><span class="lang-en">Pistachio · Almond</span><span class="lang-fr">Pistache · Amande</span></span>
+    </div>
+    <div class="cat-card disabled">
+      <div class="cat-soon"><span class="lang-fa">بزودی</span><span class="lang-en">Soon</span><span class="lang-fr">Bientôt</span></div>
+      <span class="cat-emoji">🥖</span>
+      <span class="cat-label"><span class="lang-fa">بیکری</span><span class="lang-en">Bakery</span><span class="lang-fr">Boulangerie</span></span>
+      <span class="cat-sub"><span class="lang-fa">نان‌های تازه</span><span class="lang-en">Fresh breads</span><span class="lang-fr">Pains frais</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRODUCTS ══ -->
+<section class="section" style="background:#fff;padding-top:30px" id="products">
+  <div class="sec-head">
+    <span class="sec-sub lang-fa">محصولات فعال</span><span class="sec-sub lang-en">Active Products</span><span class="sec-sub lang-fr">Produits Disponibles</span>
+    <h2><span class="lang-fa">شیرینی‌های اصیل ما</span><span class="lang-en">Our Authentic Sweets</span><span class="lang-fr">Nos Douceurs Authentiques</span></h2>
+    <p><span class="lang-fa">تهیه‌شده با بهترین مواد اولیه · طعم اصیل ایرانی</span><span class="lang-en">Made with the finest ingredients · Authentic Persian flavours</span><span class="lang-fr">Préparés avec les meilleurs ingrédients · Saveurs persanes authentiques</span></p>
+  </div>
+  <div class="filter-row" id="filter-row">
+    <!-- chips rendered by JS -->
+  </div>
+  <div class="prod-grid" id="prod-grid"></div>
+</section>
+
+<!-- ══ FEATURED BANNER ══ -->
+<div class="feat-banner">
+  <div class="feat-text">
+    <div class="hero-badge" style="animation:none">🎁 <span class="lang-fa">هدیه و تشریفات</span><span class="lang-en">Gift & Events</span><span class="lang-fr">Cadeaux & Événements</span></div>
+    <h2><span class="lang-fa">جعبه‌های هدیه<br><em>شیرینی اصیل</em></span><span class="lang-en">Gift Boxes of<br><em>Authentic Sweets</em></span><span class="lang-fr">Coffrets Cadeaux de<br><em>Douceurs Authentiques</em></span></h2>
+    <p><span class="lang-fa">برای مراسم نوروز، عروسی، تولد و هر مناسبت خاصی جعبه‌های هدیه سفارشی با ریبون و بسته‌بندی لوکس آماده می‌کنیم</span><span class="lang-en">Custom gift boxes for Nowruz, weddings, birthdays and any special occasion — luxurious packaging with ribbon</span><span class="lang-fr">Coffrets personnalisés pour Norouz, mariages, anniversaires et occasions spéciales — emballage luxueux avec ruban</span></p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn-gold" onclick="toast('📞 +1 (506) 000-0000')"><span class="lang-fa">سفارش هدیه</span><span class="lang-en">Order Gift Box</span><span class="lang-fr">Commander un Coffret</span></button>
+      <button class="btn-outline" onclick="toast('📩 info@nabathouse.ca')"><span class="lang-fa">مشاوره رایگان</span><span class="lang-en">Free Consultation</span><span class="lang-fr">Consultation Gratuite</span></button>
+    </div>
+  </div>
+  <div class="feat-imgs">
+    <div class="feat-box">🎁</div><div class="feat-box">🥮</div>
+    <div class="feat-box">🍰</div><div class="feat-box">💐</div>
+  </div>
+</div>
+
+<!-- ══ DELIVERY ══ -->
+<section class="section" id="delivery">
+  <div class="sec-head">
+    <span class="sec-sub lang-fa">ارسال و تحویل</span><span class="sec-sub lang-en">Shipping & Delivery</span><span class="sec-sub lang-fr">Livraison & Expédition</span>
+    <h2><span class="lang-fa">ارسال به سراسر کانادا</span><span class="lang-en">Delivery Across Canada</span><span class="lang-fr">Livraison Partout au Canada</span></h2>
+    <p><span class="lang-fa">از Moncton به تمام استان‌های کانادا — و به زودی آمریکای شمالی</span><span class="lang-en">From Moncton NB to all Canadian provinces — and soon to North America</span><span class="lang-fr">De Moncton NB à toutes les provinces canadiennes — bientôt en Amérique du Nord</span></p>
+  </div>
+  <div class="delivery-grid">
+    <div class="del-card"><div class="del-icon">🏠</div><h4><span class="lang-fa">تحویل در Moncton</span><span class="lang-en">Moncton Delivery</span><span class="lang-fr">Livraison à Moncton</span></h4><p><span class="lang-fa">تحویل رایگان درب منزل. همان روز یا روز بعد.</span><span class="lang-en">Free home delivery. Same day or next day.</span><span class="lang-fr">Livraison à domicile gratuite. Jour même ou lendemain.</span></p></div>
+    <div class="del-card"><div class="del-icon">📦</div><h4><span class="lang-fa">داخل New Brunswick</span><span class="lang-en">Within New Brunswick</span><span class="lang-fr">Au sein du N.-B.</span></h4><p><span class="lang-fa">بسته‌بندی ایمن و عایق سرما. ۱–۲ روز.</span><span class="lang-en">Safe insulated packaging. 1–2 days.</span><span class="lang-fr">Emballage isotherme. 1–2 jours.</span></p></div>
+    <div class="del-card"><div class="del-icon">🚂</div><h4><span class="lang-fa">سراسر کانادا</span><span class="lang-en">All of Canada</span><span class="lang-fr">Tout le Canada</span></h4><p><span class="lang-fa">ارسال به تمام استان‌ها. ۳–۵ روز.</span><span class="lang-en">Shipped to all provinces. 3–5 days.</span><span class="lang-fr">Expédition dans toutes les provinces. 3–5 jours.</span></p></div>
+    <div class="del-card" style="border:1.5px dashed rgba(200,146,42,.28);opacity:.68"><div class="del-icon">✈️</div><h4><span class="lang-fa">آمریکا (بزودی)</span><span class="lang-en">USA (Coming Soon)</span><span class="lang-fr">États-Unis (Bientôt)</span></h4><p><span class="lang-fa">ارسال به آمریکای شمالی — فاز بعدی توسعه</span><span class="lang-en">Shipping to North America — next expansion phase</span><span class="lang-fr">Expédition en Amérique du Nord — prochaine phase</span></p></div>
+  </div>
+</section>
+
+<!-- ══ PROMO ══ -->
+<div class="promo">
+  <div class="promo-txt">
+    <h3>🎉 <span class="lang-fa">تخفیف اولین خرید</span><span class="lang-en">First Order Discount</span><span class="lang-fr">Réduction Première Commande</span></h3>
+    <p><span class="lang-fa">۱۵٪ تخفیف برای اولین سفارش آنلاین</span><span class="lang-en">15% off your first online order</span><span class="lang-fr">15% de réduction sur votre première commande en ligne</span></p>
+  </div>
+  <div class="promo-code" onclick="copyPromo()">
+    <div class="promo-lbl"><span class="lang-fa">کد تخفیف</span><span class="lang-en">Discount Code</span><span class="lang-fr">Code de Réduction</span></div>
+    <div class="promo-val">NABAT15</div>
+    <div class="promo-sub"><span class="lang-fa">کلیک کنید تا کپی شود</span><span class="lang-en">Click to copy</span><span class="lang-fr">Cliquez pour copier</span></div>
+  </div>
+  <button class="btn-gold" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})"><span class="lang-fa">همین الان سفارش بده</span><span class="lang-en">Order Now</span><span class="lang-fr">Commander Maintenant</span></button>
+</div>
+
+<!-- ══ PAYMENT ══ -->
+<section class="pay-section" id="payment">
+  <div class="sec-head">
+    <span class="sec-sub lang-fa">درگاه پرداخت</span><span class="sec-sub lang-en">Payment Gateway</span><span class="sec-sub lang-fr">Passerelle de Paiement</span>
+    <h2><span class="lang-fa">روش‌های پرداخت امن</span><span class="lang-en">Secure Payment Methods</span><span class="lang-fr">Méthodes de Paiement Sécurisées</span></h2>
+    <p><span class="lang-fa">پرداخت با کارت بانکی، Interac یا ارز دیجیتال</span><span class="lang-en">Pay by card, Interac e-Transfer, or cryptocurrency</span><span class="lang-fr">Payez par carte, Interac ou cryptomonnaie</span></p>
+  </div>
+  <div style="text-align:center">
+  <div class="pay-tabs">
+    <button class="pay-tab active" onclick="switchPay(this,'card')">💳 <span class="lang-fa">کارت بانکی</span><span class="lang-en">Card</span><span class="lang-fr">Carte</span></button>
+    <button class="pay-tab" onclick="switchPay(this,'interac')">📨 Interac</button>
+    <button class="pay-tab" onclick="switchPay(this,'crypto')">₿ <span class="lang-fa">ارز دیجیتال</span><span class="lang-en">Crypto</span><span class="lang-fr">Crypto</span></button>
+  </div>
+  </div>
+
+  <!-- Card -->
+  <div class="pay-panel active" id="pay-card">
+    <div class="pay-form">
+      <h3>💳 <span class="lang-fa">پرداخت با کارت</span><span class="lang-en">Card Payment</span><span class="lang-fr">Paiement par Carte</span></h3>
+      <p><span class="lang-fa">رمزگذاری ۲۵۶ بیتی · کاملاً امن</span><span class="lang-en">256-bit SSL encryption · Fully secure</span><span class="lang-fr">Chiffrement SSL 256 bits · Entièrement sécurisé</span></p>
+      <div class="frow"><label><span class="lang-fa">نام روی کارت</span><span class="lang-en">Cardholder Name</span><span class="lang-fr">Nom sur la carte</span></label><input type="text" placeholder="Full Name"></div>
+      <div class="frow"><label><span class="lang-fa">شماره کارت</span><span class="lang-en">Card Number</span><span class="lang-fr">Numéro de carte</span></label><input type="text" placeholder="1234  5678  9012  3456" maxlength="19" oninput="fmtCard(this)"></div>
+      <div class="fsplit">
+        <div class="frow" style="margin:0"><label><span class="lang-fa">انقضا</span><span class="lang-en">Expiry</span><span class="lang-fr">Expiration</span></label><input type="text" placeholder="MM / YY" maxlength="7"></div>
+        <div class="frow" style="margin:0"><label>CVV</label><input type="text" placeholder="•••" maxlength="4"></div>
+      </div>
+      <div class="frow" style="margin-top:14px"><label><span class="lang-fa">مبلغ (CAD)</span><span class="lang-en">Amount (CAD)</span><span class="lang-fr">Montant (CAD)</span></label><input id="card-total" readonly style="color:var(--gold-light);cursor:default" value="CA$ 0.00"></div>
+      <button class="pay-btn" onclick="processPay('card')">🔒 <span class="lang-fa">پرداخت امن</span><span class="lang-en">Secure Payment</span><span class="lang-fr">Paiement Sécurisé</span></button>
+      <div class="pay-secure">🔒 Visa · Mastercard · Amex · Debit</div>
+    </div>
+  </div>
+
+  <!-- Interac -->
+  <div class="pay-panel" id="pay-interac">
+    <div class="pay-form">
+      <h3>📨 Interac e-Transfer</h3>
+      <p><span class="lang-fa">ارسال مستقیم — سریع و بدون کارمزد</span><span class="lang-en">Direct bank transfer — fast & fee-free</span><span class="lang-fr">Virement bancaire direct — rapide et sans frais</span></p>
+      <div class="interac-box">
+        <div style="color:rgba(255,255,255,.55);font-size:.8rem"><span class="lang-fa">ارسال e-Transfer به:</span><span class="lang-en">Send e-Transfer to:</span><span class="lang-fr">Envoyer l'e-Transfer à :</span></div>
+        <div class="interac-email">pay@nabathouse.ca</div>
+        <div class="interac-note"><span class="lang-fa">در پیام: نام + شماره سفارش</span><span class="lang-en">In message: Name + Order number</span><span class="lang-fr">Dans le message : Nom + numéro de commande</span></div>
+      </div>
+      <div class="frow"><label><span class="lang-fa">نام کامل</span><span class="lang-en">Full Name</span><span class="lang-fr">Nom complet</span></label><input type="text" placeholder="Full Name"></div>
+      <div class="frow"><label><span class="lang-fa">ایمیل</span><span class="lang-en">Email</span><span class="lang-fr">Courriel</span></label><input type="email" placeholder="your@email.com"></div>
+      <div class="frow"><label><span class="lang-fa">یادداشت سفارش</span><span class="lang-en">Order Note</span><span class="lang-fr">Note de commande</span></label><input type="text" placeholder="Product / Quantity / Address"></div>
+      <button class="pay-btn" onclick="processPay('interac')">✅ <span class="lang-fa">تأیید سفارش</span><span class="lang-en">Confirm Order</span><span class="lang-fr">Confirmer la Commande</span></button>
+      <div class="pay-secure">✓ <span class="lang-fa">بدون کارمزد · پردازش در ۱-۲ ساعت</span><span class="lang-en">No fees · Processed in 1–2 hours</span><span class="lang-fr">Sans frais · Traité en 1–2 heures</span></div>
+    </div>
+  </div>
+
+  <!-- Crypto -->
+  <div class="pay-panel" id="pay-crypto">
+    <div class="pay-form">
+      <h3>₿ <span class="lang-fa">ارز دیجیتال</span><span class="lang-en">Cryptocurrency</span><span class="lang-fr">Cryptomonnaie</span></h3>
+      <p><span class="lang-fa">بیت‌کوین، اتریوم، USDT و موارد بیشتر</span><span class="lang-en">Bitcoin, Ethereum, USDT and more</span><span class="lang-fr">Bitcoin, Ethereum, USDT et plus</span></p>
+      <div class="crypto-grid">
+        <div class="coin sel" onclick="selCoin(this,'BTC','bc1q...nabat123example')"><span class="coin-ic">₿</span><div class="coin-nm">Bitcoin</div><div class="coin-sy">BTC</div></div>
+        <div class="coin" onclick="selCoin(this,'ETH','0x1a2b...example456')"><span class="coin-ic">Ξ</span><div class="coin-nm">Ethereum</div><div class="coin-sy">ETH</div></div>
+        <div class="coin" onclick="selCoin(this,'USDT','TRX...usdt789example')"><span class="coin-ic">₮</span><div class="coin-nm">Tether</div><div class="coin-sy">USDT</div></div>
+        <div class="coin" onclick="selCoin(this,'LTC','ltc1q...lite012')"><span class="coin-ic">Ł</span><div class="coin-nm">Litecoin</div><div class="coin-sy">LTC</div></div>
+      </div>
+      <div class="wallet-box">
+        <div class="wallet-lbl"><span id="coin-lbl">BTC</span> <span class="lang-fa">آدرس کیف پول</span><span class="lang-en">Wallet Address</span><span class="lang-fr">Adresse du Portefeuille</span></div>
+        <span class="wallet-addr" id="waddr">bc1q...nabat123example</span><br>
+        <button class="copy-btn" onclick="copyWallet()">📋 <span class="lang-fa">کپی آدرس</span><span class="lang-en">Copy Address</span><span class="lang-fr">Copier l'adresse</span></button>
+      </div>
+      <div class="crypto-warn"><span class="lang-fa">⚠️ پس از انتقال، تصویر تراکنش را به </span><span class="lang-en">⚠️ After transfer, send transaction screenshot to </span><span class="lang-fr">⚠️ Après le virement, envoyez la capture d'écran à </span><span>crypto@nabathouse.ca</span><span class="lang-fa"> ارسال فرمایید</span><span class="lang-en"> for order confirmation</span><span class="lang-fr"> pour confirmation</span></div>
+      <button class="pay-btn" onclick="processPay('crypto')">📤 <span class="lang-fa">تأیید پرداخت</span><span class="lang-en">Confirm Payment</span><span class="lang-fr">Confirmer le Paiement</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="section-dark" id="reviews">
+  <div class="sec-head">
+    <span class="sec-sub" style="color:var(--gold)"><span class="lang-fa">نظر مشتریان</span><span class="lang-en">Customer Reviews</span><span class="lang-fr">Avis Clients</span></span>
+    <h2><span class="lang-fa">خانواده نبات House چه می‌گویند</span><span class="lang-en">What Our Customers Say</span><span class="lang-fr">Ce que Disent Nos Clients</span></h2>
+    <div class="ornament">❋ ✦ ❋</div>
+  </div>
+  <div class="testi-grid">
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-text">
+        <span class="lang-fa">"نون خامه‌ای‌شون دقیقاً همون طعم مشهدیه! اینقدر خوشمزه بود که روز بعد دوباره سفارش دادم."</span>
+        <span class="lang-en">"Their cream puffs taste exactly like the ones in Mashhad! So delicious I ordered again the next day."</span>
+        <span class="lang-fr">"Leurs choux à la crème ont exactement le goût de ceux de Mashhad ! Si délicieux que j'ai recommandé le lendemain."</span>
+      </div>
+      <div class="tcard-author"><div class="tav">👩</div><div><div class="tname">Sara M.</div><div class="tcity">Moncton, NB</div></div></div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-text">
+        <span class="lang-fa">"باقلواشون رو برای جشن نوروز سفارش دادم. همه مهمونا تعریف کردن. طعم اصیل ایرانی داره."</span>
+        <span class="lang-en">"Ordered baklava for Nowruz celebrations. All our guests were impressed. Truly authentic Persian taste."</span>
+        <span class="lang-fr">"Commandé du baklava pour Norouz. Tous nos invités ont été impressionnés. Goût persan vraiment authentique."</span>
+      </div>
+      <div class="tcard-author"><div class="tav">👨</div><div><div class="tname">Ali R.</div><div class="tcity">Fredericton, NB</div></div></div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-text">
+        <span class="lang-fa">"کیک موز و گردوشون فوق‌العاده‌ست! از تورنتو سفارش دادم و سالم و تازه رسید."</span>
+        <span class="lang-en">"The banana walnut cake is extraordinary! Ordered from Toronto and it arrived perfectly fresh."</span>
+        <span class="lang-fr">"Le gâteau banane-noix est extraordinaire ! Commandé depuis Toronto et livré parfaitement frais."</span>
+      </div>
+      <div class="tcard-author"><div class="tav">👩</div><div><div class="tname">Niloufar K.</div><div class="tcity">Toronto, ON</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FUTURE PHASES ══ -->
+<section class="section" style="background:var(--cream)">
+  <div class="sec-head">
+    <span class="sec-sub"><span class="lang-fa">مراحل آینده</span><span class="lang-en">Future Phases</span><span class="lang-fr">Phases Futures</span></span>
+    <h2><span class="lang-fa">نبات House در حال رشد است</span><span class="lang-en">NABAT House is Growing</span><span class="lang-fr">NABAT House est en Croissance</span></h2>
+    <p><span class="lang-fa">در فازهای بعدی خدمات جامع تشریفات مجالس ارائه می‌دهیم</span><span class="lang-en">Full event planning and wedding services coming in future phases</span><span class="lang-fr">Services complets d'organisation d'événements et de mariages dans les prochaines phases</span></p>
+  </div>
+  <div class="future-grid">
+    <div class="fcard" data-phase="Phase 2"><span class="fcard-ic">💒</span><h4><span class="lang-fa">تالار عروسی</span><span class="lang-en">Wedding Hall</span><span class="lang-fr">Salle de Mariage</span></h4><p><span class="lang-fa">رزرو سالن و باغ تالار</span><span class="lang-en">Banquet hall & garden booking</span><span class="lang-fr">Réservation de salle et jardin</span></p></div>
+    <div class="fcard" data-phase="Phase 2"><span class="fcard-ic">💄</span><h4><span class="lang-fa">آرایشگاه عروس</span><span class="lang-en">Bridal Beauty</span><span class="lang-fr">Salon Nuptial</span></h4><p><span class="lang-fa">سالن آرایش عروس و داماد</span><span class="lang-en">Bride & groom styling</span><span class="lang-fr">Coiffure et maquillage mariés</span></p></div>
+    <div class="fcard" data-phase="Phase 2"><span class="fcard-ic">💐</span><h4><span class="lang-fa">گل‌فروشی</span><span class="lang-en">Florist</span><span class="lang-fr">Fleuriste</span></h4><p><span class="lang-fa">دسته گل و تزئینات مراسم</span><span class="lang-en">Bouquets & event décor</span><span class="lang-fr">Bouquets et décoration</span></p></div>
+    <div class="fcard" data-phase="Phase 2"><span class="fcard-ic">🎪</span><h4><span class="lang-fa">تشریفات مجالس</span><span class="lang-en">Event Planning</span><span class="lang-fr">Organisation d'Événements</span></h4><p><span class="lang-fa">برنامه‌ریزی و اجرای مراسم</span><span class="lang-en">Full event management</span><span class="lang-fr">Gestion complète d'événements</span></p></div>
+    <div class="fcard" data-phase="Phase 3"><span class="fcard-ic">🎂</span><h4><span class="lang-fa">کیک سفارشی</span><span class="lang-en">Custom Cakes</span><span class="lang-fr">Gâteaux Personnalisés</span></h4><p><span class="lang-fa">کیک عروسی و تولد سفارشی</span><span class="lang-en">Wedding & birthday cakes</span><span class="lang-fr">Gâteaux de mariage et anniversaire</span></p></div>
+    <div class="fcard" data-phase="Phase 3"><span class="fcard-ic">🌎</span><h4><span class="lang-fa">ارسال به آمریکا</span><span class="lang-en">USA Shipping</span><span class="lang-fr">Livraison aux USA</span></h4><p><span class="lang-fa">توسعه به آمریکای شمالی</span><span class="lang-en">North America expansion</span><span class="lang-fr">Expansion en Amérique du Nord</span></p></div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER ══ -->
+<section class="newsletter">
+  <div class="ornament" style="color:var(--gold-light);margin-bottom:1rem">❋ ✦ ❋ ✦ ❋</div>
+  <h2><span class="lang-fa">عضو خانواده نبات House شوید</span><span class="lang-en">Join the NABAT House Family</span><span class="lang-fr">Rejoignez la Famille NABAT House</span></h2>
+  <p><span class="lang-fa">اولین نفری باشید که از تخفیف‌ها و محصولات جدید خبردار می‌شوید</span><span class="lang-en">Be the first to hear about new products and exclusive deals</span><span class="lang-fr">Soyez le premier informé des nouveaux produits et offres exclusives</span></p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="your@email.com" id="nl-email">
+    <button class="nl-btn" onclick="subscribe()"><span class="lang-fa">عضویت</span><span class="lang-en">Subscribe</span><span class="lang-fr">S'abonner</span></button>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="fbrand">
+      <div class="flogo">NABAT <span>House</span></div>
+      <p><span class="lang-fa">شیرینی‌های اصیل ایرانی با طعم خانگی. از قلب Moncton به سراسر کانادا.</span><span class="lang-en">Authentic Persian sweets with homemade flavour. From the heart of Moncton to all of Canada.</span><span class="lang-fr">Douceurs persanes authentiques au goût maison. Du cœur de Moncton à tout le Canada.</span></p>
+      <div class="faddr">
+        <strong>📍</strong> Moncton, New Brunswick, Canada<br>
+        <strong>☎</strong> <span dir="ltr">+1 (506) 000-0000</span><br>
+        <strong>✉</strong> info@nabathouse.ca<br>
+        <strong>⏰</strong> <span class="lang-fa">شنبه–جمعه ۹–۲۰</span><span class="lang-en">Mon–Sat 9am–8pm</span><span class="lang-fr">Lun–Sam 9h–20h</span>
+      </div>
+      <div class="fsocial">
+        <a class="soc" href="#" title="Instagram">📸</a>
+        <a class="soc" href="#" title="Facebook">📘</a>
+        <a class="soc" href="#" title="WhatsApp">💬</a>
+        <a class="soc" href="#" title="Telegram">✈️</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h4><span class="lang-fa">محصولات</span><span class="lang-en">Products</span><span class="lang-fr">Produits</span></h4>
+      <ul>
+        <li><a href="#"><span class="lang-fa">شیرینی رلد</span><span class="lang-en">Persian Roll</span><span class="lang-fr">Roulade Persane</span></a></li>
+        <li><a href="#"><span class="lang-fa">نون خامه‌ای</span><span class="lang-en">Cream Puffs</span><span class="lang-fr">Choux à la Crème</span></a></li>
+        <li><a href="#"><span class="lang-fa">باقلوا</span><span class="lang-en">Baklava</span><span class="lang-fr">Baklava</span></a></li>
+        <li><a href="#"><span class="lang-fa">نان بربری</span><span class="lang-en">Barbari Bread</span><span class="lang-fr">Pain Barbari</span></a></li>
+        <li><a href="#"><span class="lang-fa">کیک موز گردو</span><span class="lang-en">Banana Walnut Cake</span><span class="lang-fr">Gâteau Banane-Noix</span></a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4><span class="lang-fa">خدمات</span><span class="lang-en">Services</span><span class="lang-fr">Services</span></h4>
+      <ul>
+        <li><a href="#"><span class="lang-fa">سفارش آنلاین</span><span class="lang-en">Online Order</span><span class="lang-fr">Commande en Ligne</span></a></li>
+        <li><a href="#"><span class="lang-fa">سفارش تلفنی</span><span class="lang-en">Phone Order</span><span class="lang-fr">Commande Téléphonique</span></a></li>
+        <li><a href="#"><span class="lang-fa">جعبه هدیه</span><span class="lang-en">Gift Box</span><span class="lang-fr">Coffret Cadeau</span></a></li>
+        <li><a href="#"><span class="lang-fa">ارسال سراسری</span><span class="lang-en">Nationwide Shipping</span><span class="lang-fr">Livraison Nationale</span></a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4><span class="lang-fa">راهنما</span><span class="lang-en">Help</span><span class="lang-fr">Aide</span></h4>
+      <ul>
+        <li><a href="#"><span class="lang-fa">رویه ارسال</span><span class="lang-en">Shipping Policy</span><span class="lang-fr">Politique de Livraison</span></a></li>
+        <li><a href="#"><span class="lang-fa">مرجوعی کالا</span><span class="lang-en">Returns</span><span class="lang-fr">Retours</span></a></li>
+        <li><a href="#"><span class="lang-fa">حریم خصوصی</span><span class="lang-en">Privacy Policy</span><span class="lang-fr">Confidentialité</span></a></li>
+        <li><a href="#"><span class="lang-fa">تماس با ما</span><span class="lang-en">Contact Us</span><span class="lang-fr">Contactez-nous</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2025 NABAT House · Moncton, NB, Canada</span>
+    <div class="fpays">
+      <span class="lang-fa">پرداخت:</span><span class="lang-en">Pay:</span><span class="lang-fr">Paiement :</span>
+      <span class="pico">VISA</span><span class="pico">MC</span><span class="pico">Interac</span><span class="pico">BTC</span><span class="pico">ETH</span><span class="pico">USDT</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ CART SIDEBAR ══ -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="cart-side" id="cart-side">
+  <div class="cart-top">
+    <h3>🛒 <span class="lang-fa">سبد خرید</span><span class="lang-en">Shopping Cart</span><span class="lang-fr">Panier</span></h3>
+    <button class="cx" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-list" id="cart-list">
+    <div class="cempty"><span class="cempty-ic">🛒</span><p><span class="lang-fa">سبد خرید خالی است</span><span class="lang-en">Your cart is empty</span><span class="lang-fr">Votre panier est vide</span></p></div>
+  </div>
+  <div class="cart-foot" id="cart-foot" style="display:none">
+    <div class="cart-tot-row">
+      <span class="cart-tot-lbl"><span class="lang-fa">مجموع</span><span class="lang-en">Total</span><span class="lang-fr">Total</span></span>
+      <span class="cart-tot-val" id="cart-total-val">CA$0.00</span>
+    </div>
+    <div class="cart-note"><span class="lang-fa">+ هزینه ارسال در مرحله بعد</span><span class="lang-en">+ Shipping calculated at next step</span><span class="lang-fr">+ Frais de livraison à l'étape suivante</span></div>
+    <button class="chk-btn" onclick="goCheckout()">💳 <span class="lang-fa">ادامه و پرداخت</span><span class="lang-en">Proceed to Checkout</span><span class="lang-fr">Passer la Commande</span> →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══ JAVASCRIPT ══ -->
+<script>
+// ── LANGUAGE ──────────────────────────────────────
+const LANGS = {
+  fa:{dir:'rtl',html:'fa'},
+  en:{dir:'ltr',html:'en'},
+  fr:{dir:'ltr',html:'fr'}
+};
+let curLang = 'fa';
+function setLang(l){
+  curLang = l;
+  const {dir,html} = LANGS[l];
+  document.documentElement.setAttribute('data-lang',html);
+  document.documentElement.setAttribute('lang',html);
+  document.documentElement.setAttribute('dir',dir);
+  document.body.setAttribute('dir',dir);
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('lbtn-'+l).classList.add('active');
+  renderProducts();
+  renderFilters();
+}
+
+// ── PRODUCTS DATA ─────────────────────────────────
+const PRODS = [
+  {id:1,cat:'shirini-irani',emoji:'🥮',priceKg:85,badge:'badge-hot',
+   fa:{name:'شیرینی رلد',tag:'شیرینی ایرانی',desc:'شیرینی رلد اصیل با مغز گردو و دارچین، پیچیده در خمیر نازک و ترد',badgeLbl:'پرفروش'},
+   en:{name:'Persian Roll Pastry',tag:'Persian Sweet',desc:'Authentic roll pastry with walnut & cinnamon filling wrapped in thin crispy dough',badgeLbl:'Best Seller'},
+   fr:{name:'Roulade Persane',tag:'Douceur Persane',desc:'Roulade authentique garnie de noix et cannelle, enveloppée dans une pâte fine et croustillante',badgeLbl:'Meilleures Ventes'},
+   weights:[{fa:'۵۰۰ گرم',en:'500g',fr:'500g',kg:.5},{fa:'۱ کیلو',en:'1kg',fr:'1kg',kg:1},{fa:'۲ کیلو',en:'2kg',fr:'2kg',kg:2}],
+   rating:5,reviews:142},
+  {id:2,cat:'noon-khamei',emoji:'🍮',priceKg:90,badge:'badge-new',
+   fa:{name:'نان خامه‌ای (نارنجک مشهدی)',tag:'نان خامه‌ای',desc:'نارنجک مشهدی اصیل با خامه تازه، ترد از بیرون و نرم از درون',badgeLbl:'جدید'},
+   en:{name:'Mashhad Cream Puffs',tag:'Cream Pastry',desc:'Authentic Mashhad-style cream puffs with fresh cream — crispy outside, soft inside',badgeLbl:'New'},
+   fr:{name:'Choux à la Crème (Mashhad)',tag:'Pâtisserie Crème',desc:'Choux à la crème de style Mashhad — croustillant dehors, moelleux dedans',badgeLbl:'Nouveau'},
+   weights:[{fa:'۶ عدد',en:'6 pcs',fr:'6 pièces',kg:.4},{fa:'۱۲ عدد',en:'12 pcs',fr:'12 pièces',kg:.8},{fa:'۲۴ عدد',en:'24 pcs',fr:'24 pièces',kg:1.6}],
+   rating:5,reviews:98},
+  {id:3,cat:'shirini-irani',emoji:'🍯',priceKg:100,badge:'badge-hot',
+   fa:{name:'باقلوا',tag:'شیرینی ایرانی',desc:'باقلوای اصیل ایرانی با گلاب و هل، لایه‌های نازک فیلو و مغز پسته معطر',badgeLbl:'ممتاز'},
+   en:{name:'Persian Baklava',tag:'Persian Sweet',desc:'Authentic Persian baklava with rose water & cardamom, thin filo layers and fragrant pistachio filling',badgeLbl:'Premium'},
+   fr:{name:'Baklava Persan',tag:'Douceur Persane',desc:'Baklava persan authentique à l\'eau de rose et cardamome, couches de filo et pistaches parfumées',badgeLbl:'Premium'},
+   weights:[{fa:'۵۰۰ گرم',en:'500g',fr:'500g',kg:.5},{fa:'۱ کیلو',en:'1kg',fr:'1kg',kg:1},{fa:'۱.۵ کیلو',en:'1.5kg',fr:'1,5kg',kg:1.5}],
+   rating:5,reviews:187},
+  {id:4,cat:'cake',emoji:'🍰',priceKg:80,badge:'badge-new',
+   fa:{name:'کیک موز و گردو',tag:'کیک',desc:'کیک خانگی با موز رسیده طبیعی و گردو. مرطوب، خوشمزه و بدون مواد نگهدارنده',badgeLbl:'تازه'},
+   en:{name:'Banana Walnut Cake',tag:'Cake',desc:'Homemade cake with natural ripe banana and walnut. Moist, delicious and preservative-free',badgeLbl:'Fresh'},
+   fr:{name:'Gâteau Banane-Noix',tag:'Gâteau',desc:'Gâteau maison aux bananes mûres naturelles et noix. Moelleux, délicieux, sans conservateurs',badgeLbl:'Frais'},
+   weights:[{fa:'۵۰۰ گرم',en:'500g',fr:'500g',kg:.5},{fa:'۱ کیلو',en:'1kg',fr:'1kg',kg:1},{fa:'۱.۵ کیلو',en:'1.5kg',fr:'1,5kg',kg:1.5}],
+   rating:4,reviews:56},
+  {id:5,cat:'nan-barbari',emoji:'🍞',priceKg:70,badge:'badge-sale',
+   fa:{name:'نان بربری',tag:'نان بربری',desc:'نان بربری تازه، هر روز صبح پخته می‌شه. کنجدی، ترد و معطر',badgeLbl:'روزانه'},
+   en:{name:'Persian Barbari Bread',tag:'Bread',desc:'Fresh barbari bread baked every morning. Sesame topped, crispy and fragrant',badgeLbl:'Daily'},
+   fr:{name:'Pain Barbari Persan',tag:'Pain',desc:'Pain barbari frais cuit chaque matin. Garni de sésame, croustillant et parfumé',badgeLbl:'Quotidien'},
+   weights:[{fa:'۱ نان',en:'1 loaf',fr:'1 pain',kg:.4},{fa:'۲ نان',en:'2 loaves',fr:'2 pains',kg:.8},{fa:'۴ نان',en:'4 loaves',fr:'4 pains',kg:1.6}],
+   rating:5,reviews:74}
+];
+
+const FILTERS = [
+  {key:'all', fa:'همه', en:'All', fr:'Tous'},
+  {key:'shirini-irani', fa:'شیرینی ایرانی', en:'Persian Sweets', fr:'Douceurs Persanes'},
+  {key:'noon-khamei', fa:'نان خامه‌ای', en:'Cream Puffs', fr:'Choux à la Crème'},
+  {key:'cake', fa:'کیک', en:'Cakes', fr:'Gâteaux'},
+  {key:'nan-barbari', fa:'نان بربری', en:'Barbari Bread', fr:'Pain Barbari'}
+];
+
+let cart = [];
+let selW = {};
+let activeCat = 'all';
+let activeFilter = 'all';
+PRODS.forEach(p=>{ selW[p.id]=0; });
+
+function stars(n){ return '★'.repeat(n)+'☆'.repeat(5-n); }
+
+function calcPrice(p){
+  return (p.priceKg * p.weights[selW[p.id]].kg).toFixed(2);
+}
+
+function renderFilters(){
+  const row = document.getElementById('filter-row');
+  row.innerHTML = FILTERS.map(f=>`
+    <button class="f-chip ${activeFilter===f.key?'active':''}" onclick="applyFilter(this,'${f.key}')">${f[curLang]||f.en}</button>
+  `).join('');
+}
+
+function applyFilter(btn, key){
+  activeFilter = key;
+  document.querySelectorAll('.f-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProducts();
+}
+
+function filterCat(card, cat){
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
+  card.classList.add('active');
+  activeFilter = cat;
+  renderFilters();
+  renderProducts();
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function renderProducts(){
+  const grid = document.getElementById('prod-grid');
+  const l = curLang === 'fr' ? 'fr' : curLang === 'en' ? 'en' : 'fa';
+  const visible = PRODS.filter(p=> activeFilter==='all' || p.cat===activeFilter);
+  if(!visible.length){
+    grid.innerHTML='<p style="color:var(--text-muted);padding:30px 0">' +
+      (l==='fa'?'محصولی یافت نشد':l==='fr'?'Aucun produit trouvé':'No products found') + '</p>';
+    return;
+  }
+  grid.innerHTML = visible.map(p=>{
+    const d = p[l]||p.en;
+    const price = calcPrice(p);
+    const addLbl = l==='fa'?'+ افزودن به سبد':l==='fr'?'+ Ajouter':'+Add';
+    return `<div class="pcard">
+      <div class="pbadge ${p.badge}">${d.badgeLbl}</div>
+      <div class="pimg"><span style="font-size:5.5rem">${p.emoji}</span></div>
+      <div class="pbody">
+        <div class="ptag">${d.tag}</div>
+        <div class="pname">${d.name}</div>
+        <div class="pdesc">${d.desc}</div>
+        <div class="pstars">${stars(p.rating)} <span class="prev">(${p.reviews})</span></div>
+        <div class="weight-sel">
+          ${p.weights.map((w,i)=>`
+            <button class="wbtn ${i===selW[p.id]?'sel':''}" onclick="selWeight(${p.id},${i})">${w[l]||w.en}</button>
+          `).join('')}
+        </div>
+        <div class="pfooter">
+          <div><div class="price">CA$${price}</div><div class="price-u">≈ CA$${p.priceKg}/kg</div></div>
+          <button class="add-btn" onclick="addCart(${p.id})">${addLbl}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function selWeight(id, idx){
+  selW[id]=idx;
+  renderProducts();
+}
+
+function addCart(id){
+  const p = PRODS.find(x=>x.id===id);
+  const sw = selW[id];
+  const w = p.weights[sw];
+  const l = curLang==='fr'?'fr':curLang==='en'?'en':'fa';
+  const price = parseFloat(calcPrice(p));
+  const cid = `${id}-${sw}`;
+  const ex = cart.find(x=>x.cid===cid);
+  if(ex){ ex.qty++; } else { cart.push({cid,id,name:(p[l]||p.en).name,emoji:p.emoji,wlbl:w[l]||w.en,price,qty:1}); }
+  updateCart();
+  const d = p[l]||p.en;
+  toast(`${p.emoji} ${d.name} ${curLang==='fa'?'به سبد اضافه شد':curLang==='fr'?'ajouté au panier':'added to cart'}`);
+}
+
+function removeCart(cid){ cart=cart.filter(x=>x.cid!==cid); updateCart(); }
+function changeQty(cid,d){
+  const item=cart.find(x=>x.cid===cid);
+  if(!item) return;
+  item.qty+=d;
+  if(item.qty<=0) cart=cart.filter(x=>x.cid!==cid);
+  updateCart();
+}
+
+function updateCart(){
+  const total = cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const count = cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById('cart-cnt').textContent=count;
+  document.getElementById('cart-total-val').textContent='CA$'+total.toFixed(2);
+  const el=document.getElementById('card-total');
+  if(el) el.value='CA$ '+total.toFixed(2);
+  const listEl=document.getElementById('cart-list');
+  const foot=document.getElementById('cart-foot');
+  if(!cart.length){
+    const empTxt = curLang==='fa'?'سبد خرید خالی است':curLang==='fr'?'Votre panier est vide':'Your cart is empty';
+    listEl.innerHTML=`<div class="cempty"><span class="cempty-ic">🛒</span><p>${empTxt}</p></div>`;
+    foot.style.display='none'; return;
+  }
+  foot.style.display='block';
+  listEl.innerHTML=cart.map(item=>`
+    <div class="ci-row">
+      <div class="ci-img">${item.emoji}</div>
+      <div class="ci-info">
+        <div class="ci-nm">${item.name}</div>
+        <div class="ci-wt">${item.wlbl}</div>
+        <div class="ci-pr">CA$${(item.price*item.qty).toFixed(2)}</div>
+        <div class="ci-qty">
+          <button class="qb" onclick="changeQty('${item.cid}',-1)">−</button>
+          <span class="qn">${item.qty}</span>
+          <button class="qb" onclick="changeQty('${item.cid}',1)">+</button>
+        </div>
+      </div>
+      <button class="ci-rm" onclick="removeCart('${item.cid}')">✕</button>
+    </div>`).join('');
+}
+
+function openCart(){ document.getElementById('overlay').classList.add('open'); document.getElementById('cart-side').classList.add('open'); }
+function closeCart(){ document.getElementById('overlay').classList.remove('open'); document.getElementById('cart-side').classList.remove('open'); }
+function goCheckout(){ closeCart(); document.getElementById('payment').scrollIntoView({behavior:'smooth'}); }
+
+function switchPay(btn, id){
+  document.querySelectorAll('.pay-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.pay-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pay-'+id).classList.add('active');
+}
+
+function selCoin(el, coin, addr){
+  document.querySelectorAll('.coin').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('coin-lbl').textContent=coin;
+  document.getElementById('waddr').textContent=addr;
+}
+
+function copyWallet(){ navigator.clipboard.writeText(document.getElementById('waddr').textContent).then(()=>toast('📋 '+(curLang==='fa'?'آدرس کپی شد':curLang==='fr'?'Adresse copiée':'Address copied'))) }
+function copyPromo(){ navigator.clipboard.writeText('NABAT15').then(()=>toast('✅ NABAT15 '+(curLang==='fa'?'کپی شد':curLang==='fr'?'copié':'copied'))) }
+
+function processPay(m){
+  if(!cart.length){ toast(curLang==='fa'?'⚠️ سبد خرید خالی است':curLang==='fr'?'⚠️ Panier vide':'⚠️ Cart is empty'); return; }
+  const msgs={
+    fa:{card:'✅ پرداخت ثبت شد! رسید به ایمیل ارسال می‌شود',interac:'📨 سفارش ثبت شد! پس از دریافت e-Transfer تأیید می‌کنیم',crypto:'₿ سفارش ثبت شد! پس از تأیید تراکنش ارسال می‌شود'},
+    en:{card:'✅ Payment submitted! Receipt will be emailed',interac:'📨 Order confirmed! We\'ll verify the e-Transfer shortly',crypto:'₿ Order placed! We\'ll confirm after verifying your transaction'},
+    fr:{card:'✅ Paiement soumis ! Le reçu sera envoyé par courriel',interac:'📨 Commande confirmée ! Nous vérifierons l\'e-Transfer sous peu',crypto:'₿ Commande passée ! Confirmation après vérification de la transaction'}
+  };
+  toast(msgs[curLang][m]);
+  cart=[]; updateCart();
+}
+
+function subscribe(){
+  const em=document.getElementById('nl-email').value;
+  if(!em.includes('@')){ toast(curLang==='fa'?'⚠️ ایمیل معتبر وارد کنید':curLang==='fr'?'⚠️ Email invalide':'⚠️ Enter a valid email'); return; }
+  toast(curLang==='fa'?'🎉 عضویت شما ثبت شد!':curLang==='fr'?'🎉 Abonnement confirmé !':'🎉 Subscribed successfully!');
+  document.getElementById('nl-email').value='';
+}
+
+function fmtCard(el){ let v=el.value.replace(/\D/g,'').substring(0,16); el.value=v.replace(/(.{4})/g,'$1 ').trim(); }
+
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ── INIT ──
+renderFilters();
+renderProducts();
+</script>
+</body>
+</html>
